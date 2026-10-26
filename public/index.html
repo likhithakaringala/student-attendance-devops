@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Attendance Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">FACULTY PORTAL</p>
+      <h1>Student Attendance</h1>
+      <p class="subtitle">Manage daily attendance and monthly summaries</p>
+    </div>
+    <span class="tag">7 periods / day</span>
+  </header>
+  <main>
+    <section class="panel">
+      <h2>Add a student</h2>
+      <form id="student-form" class="student-form">
+        <label>Roll number<input id="roll-no" required placeholder="e.g. 23CSE001"></label>
+        <label>Student name<input id="student-name" required placeholder="Full name"></label>
+        <label>Department<input id="department" required placeholder="e.g. CSE"></label>
+        <button type="submit">Add student</button>
+      </form>
+      <p id="student-message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Daily attendance</h2><p>Choose a date and mark each period.</p></div>
+        <label class="date-label">Attendance date<input id="attendance-date" type="date" required></label>
+      </div>
+      <div class="actions">
+        <button type="button" class="secondary" id="all-present">Mark all present</button>
+        <button type="button" class="secondary" id="all-absent">Mark all absent</button>
+        <button type="button" id="save-attendance">Save attendance</button>
+      </div>
+      <div class="table-wrap">
+        <table id="attendance-table">
+          <thead><tr><th>Roll No.</th><th>Student</th><th>Department</th>
+            <th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th><th>P7</th></tr></thead>
+          <tbody id="attendance-body"></tbody>
+        </table>
+      </div>
+      <p id="attendance-message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Monthly report</h2><p>Totals use periods that have been marked Present or Absent.</p></div>
+        <label class="date-label">Select month<input id="report-month" type="month" required></label>
+      </div>
+      <div class="actions">
+        <button id="load-report" type="button">Calculate report</button>
+        <button id="export-report" type="button" class="secondary">Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Roll No.</th><th>Student</th><th>Attended</th><th>Absent</th><th>Marked periods</th><th>Attendance</th><th>Status</th></tr></thead>
+          <tbody id="report-body"></tbody></table>
+      </div>
+      <p class="note">Attendance % = periods attended ÷ periods marked × 100. This starter uses an example low-attendance threshold of 75%.</p>
+    </section>
+  </main>
+  <footer>Student Attendance Management System · DevOps project starter</footer>
+  <script src="app.js"></script>
+</body>
+</html>
